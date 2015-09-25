@@ -125,7 +125,7 @@ class MenuWalker extends Walker {
     protected function buildAttributes($object, $args, $filter, $option, $defaults = array())
     {
         $filteredAttributes = apply_filters($filter, array(), $object, $args);
-        $optionAttributes = $args[$option];
+        $optionAttributes = (array) $args[$option];
 
         $attributes = array_merge_recursive($filteredAttributes, $optionAttributes, $defaults);
         $attributes = array_filter($attributes);
